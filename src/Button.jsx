@@ -1,20 +1,14 @@
 import { useState, useEffect } from "react"
 
-export function Button({color}){
+export function Button({show, setShow, color}){
 
-  const [count, setCount] = useState(0);
+  
 
-  function handleEvent(){
-    setCount(count + 1);
-  }
-
-  useEffect(() => {
-    console.log('State is now equal to ' + count);
-  },[count]);
+ 
 
   return(
-      <button onClick={() => handleEvent()} style={{backgroundColor: color}}>
-        <p>{count}</p>
+      <button onClick={() => setShow(!show)} style={{backgroundColor: color}}>
+        <p>{show ? 'Hide' : 'Show'}</p>
       </button>
   )
 }
